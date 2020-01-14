@@ -1,4 +1,6 @@
-.CollectionItem {
+import styled from 'styled-components';
+
+export const CollectionItemContainer = styled.div`
     width: 22vw;
     display: flex;
     flex-direction: column;
@@ -14,7 +16,7 @@
       margin-bottom: 5px;
     }
 
-    .CustomButton {
+    button {
       width: 80%;
       opacity: 0.7;
       position: absolute;
@@ -27,13 +29,14 @@
         opacity: 0.8;
       }
 
-      .CustomButton {
+      button {
         opacity: 0.85;
         display: flex;
       }
     }
-  
-    .collection-footer {
+`;
+
+export const CollectionFooter = styled.div`
       width: 100%;
       height: 5%;
       display: flex;
@@ -48,6 +51,5 @@
       .price {
         width: 10%;
       }
-    }
-  }
-  
+
+`;
