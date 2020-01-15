@@ -1,14 +1,14 @@
-import './collection.styles.scss';
 import {connect} from 'react-redux';
 import React from 'react';
 
 import {selectCollection} from '../../redux/shop/shop-selectors';
 import CollectionItem from '../../components/collection-item/collection-item.component';
+import { CollectionPageContainer } from './collection.styles';
 
 const CollectionPage = ({collection}) => {
     const {title, items} = collection;
     return (
-        <div className="CollectionPage">
+        <CollectionPageContainer>
             <h2 className="title">{title}</h2>
             <div className="items">
                 {
@@ -16,7 +16,7 @@ const CollectionPage = ({collection}) => {
                 }
             </div>
             
-        </div>
+        </CollectionPageContainer>
     );
 };
 

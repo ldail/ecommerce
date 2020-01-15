@@ -1,15 +1,15 @@
 import React from 'react';
-import './checkout.styles.scss'
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import {selectCartItems, selectCartTotal} from '../../redux/cart/cart-selectors'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
+import { CheckoutContainer, CheckoutHeaderContainer } from './checkout-styles';
 
 const Checkout = ({cartItems, total}) => {
     return (
-        <div className="Checkout">
-            <div className="checkout-header">
+        <CheckoutContainer>
+            <CheckoutHeaderContainer>
                 <div className="header-block">
                     <span>Product</span>
                 </div>
@@ -26,7 +26,7 @@ const Checkout = ({cartItems, total}) => {
                     <span>Remove</span>
                 </div>
                 
-            </div>
+            </CheckoutHeaderContainer>
             {
                 cartItems.map(cartItem => 
                     <CheckoutItem cartItem={cartItem} key={cartItem.id} />
@@ -41,7 +41,7 @@ const Checkout = ({cartItems, total}) => {
                 <p>4242 4242 4242 4242 - exp: 01/20 - CVV: 123</p>
             </div>
             <StripeCheckoutButton price={total} />
-        </div>
+        </CheckoutContainer>
     );
 };
 
