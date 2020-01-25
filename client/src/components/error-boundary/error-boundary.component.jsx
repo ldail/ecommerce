@@ -1,5 +1,7 @@
 import React from 'react';
+import brokenImage from '../../assets/error-image.png';
 
+import {ErrorImageContainer, ErrorImageOverlay, ErrorImageText} from './error-boundary.styles'
 class ErrorBoundary extends React.Component {
   constructor() {
     super();
@@ -18,7 +20,12 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasErrored) {
-      return <div>Something went wrong</div>
+      return (
+      <ErrorImageOverlay>
+        <ErrorImageContainer imageUrl={brokenImage} />
+        <ErrorImageText>Sorry this page is broken</ErrorImageText>
+      </ErrorImageOverlay>
+      );
     }
     else {
       return this.props.children;
